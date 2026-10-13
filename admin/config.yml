@@ -2,7 +2,7 @@ backend:
   name: github
   repo: haisumbardotcom-ux/Haisumbar-website
   branch: main
-  base_url: https://NAMA-WORKER.workers.dev   # ISI SETELAH WORKER OAUTH JADI — lihat folder oauth-worker/README.md
+  base_url: https://haisumbar-oauth.haisumbardotcom.workers.dev
   auth_endpoint: auth
 publish_mode: editorial_workflow
 media_folder: images/uploads
