@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: USERNAME/haisumbar   # ganti dengan nama repositori Anda
+  repo: USERNAME/haisumbar-website  # ganti dengan nama repositori Anda
   branch: main
   base_url: https://NAMA-WORKER.workers.dev   # URL proxy OAuth
   auth_endpoint: auth
