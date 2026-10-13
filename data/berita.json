@@ -1,0 +1,6 @@
+{"items":[
+{"title":"Contoh judul breaking news","slug":"contoh-breaking","category":"Politik","breaking":true,"author":"Redaksi","published_at":"2026-10-13T09:00:00+07:00","image":"","body":"Isi berita pertama.\n\nParagraf kedua."},
+{"title":"Contoh berita ekonomi terkini","slug":"contoh-ekonomi","category":"Ekonomi","breaking":false,"author":"Redaksi","published_at":"2026-10-13T08:00:00+07:00","image":"","body":"Isi berita ekonomi."},
+{"title":"Contoh berita teknologi terkini","slug":"contoh-teknologi","category":"Teknologi","breaking":false,"author":"Redaksi","published_at":"2026-10-13T07:00:00+07:00","image":"","body":"Isi berita teknologi."},
+{"title":"Contoh berita olahraga terkini","slug":"contoh-olahraga","category":"Olahraga","breaking":false,"author":"Redaksi","published_at":"2026-10-13T06:00:00+07:00","image":"","body":"Isi berita olahraga."}
+]}

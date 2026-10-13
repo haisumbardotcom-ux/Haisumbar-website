@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haisumbar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="masthead">
+  <a class="brand" href="index.html">Haisumbar</a>
+  <nav id="nav" aria-label="Kategori"></nav>
+</header>
+<main>
+  <div class="ad ad-banner" data-slot="banner-atas"></div>
+  <a id="breaking" class="breaking" href="#" hidden><span class="tag">Breaking news</span><span id="breaking-title"></span></a>
+
+  <section>
+    <h2 class="sec">Berita terkini</h2>
+    <ol class="latest" id="terkini"></ol>
+  </section>
+
+  <div class="ad ad-rect" data-slot="persegi-panjang"></div>
+
+  <section>
+    <h2 class="sec">Berita per kategori</h2>
+    <div class="cats" id="kategori"></div>
+  </section>
+
+  <div class="ad ad-strip" data-slot="sela-kategori"></div>
+
+  <section>
+    <h2 class="sec">Opini</h2>
+    <div id="opini"></div>
+  </section>
+</main>
+<footer class="foot"><a href="admin/">Masuk redaksi</a></footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
