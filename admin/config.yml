@@ -1,8 +1,8 @@
 backend:
   name: github
-  repo: USERNAME/haisumbar-website  # ganti dengan nama repositori Anda
+  repo: haisumbardotcom-ux/Haisumbar-website
   branch: main
-  base_url: https://NAMA-WORKER.workers.dev   # URL proxy OAuth
+  base_url: https://NAMA-WORKER.workers.dev   # ISI SETELAH WORKER OAUTH JADI — lihat folder oauth-worker/README.md
   auth_endpoint: auth
 publish_mode: editorial_workflow
 media_folder: images/uploads
@@ -18,7 +18,7 @@ collections:
         fields:
           - { name: title, label: Judul, widget: string }
           - { name: slug, label: Slug (tanpa spasi), widget: string }
-          - { name: category, label: Kategori, widget: select, options: [Politik, Ekonomi, Teknologi, Olahraga, Hiburan] }
+          - { name: category, label: Kategori, widget: select, options: [Nasional, Politik, Lingkungan, Berita Kota, Bisnis, Ekonomi, Teknologi, Olahraga, Hiburan] }
           - { name: breaking, label: Breaking news, widget: boolean, default: false }
           - { name: author, label: Penulis, widget: string }
           - { name: published_at, label: Waktu terbit, widget: datetime }

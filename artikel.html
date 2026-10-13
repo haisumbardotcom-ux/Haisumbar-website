@@ -3,14 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Artikel · Haisumbar</title>
+<title>Artikel · Haisumbar.com</title>
+<meta name="description" content="Portal media digital dan jurnalisme data Haisumbar.com.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F6F4;color:#242424;font-family:Inter,system-ui,sans-serif}
+a{color:#242424;text-decoration:none}a:hover{color:#7C242C}
+h1,h2{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
+.wrap{max-width:760px;margin:0 auto;background:#FFFFFF;box-sizing:border-box;min-height:100vh}
+header{display:flex;align-items:center;gap:10px;padding:12px 20px;border-bottom:1px solid #E5E3DE;position:sticky;top:0;background:#FFFFFF;z-index:2}
+main{padding:24px 20px 8px}
+.badge{display:inline-block;color:#FFFFFF;font-size:11px;padding:3px 8px;font-weight:600}
+.meta{font-size:13px;color:#5C5C5C}
+.isi p{font-size:17px;line-height:1.75;margin:0 0 18px}
+.lainnya a{display:block;padding:12px 0;border-bottom:1px solid #E5E3DE}
+footer{padding:24px 20px 32px;font-size:13px;color:#5C5C5C}
+</style>
 </head>
 <body>
-<header class="masthead"><a class="brand" href="index.html">Haisumbar</a></header>
-<main class="article" id="artikel"><p>Artikel tidak ditemukan.</p></main>
-<script src="assets/app.js"></script>
+<div class="wrap">
+<header>
+<a href="index.html" style="display:flex;align-items:center;gap:10px">
+<img src="assets/logo-haisumbar.png" alt="Logo Haisumbar" style="height:40px;width:auto">
+<span style="font-family:Newsreader,serif;font-size:20px;font-weight:600;color:#7C242C">Haisumbar.com</span>
+</a>
+</header>
+<main id="artikel-isi"><p class="meta">Memuat artikel…</p></main>
+<section style="padding:8px 20px 16px" id="lainnya" hidden>
+<h2 style="font-size:20px;border-bottom:2px solid #242424;padding-bottom:6px">Berita Lainnya</h2>
+<div class="lainnya" id="daftar-lainnya"></div>
+</section>
+<footer>
+<b style="color:#242424">Haisumbar.com</b>
+<p style="margin:6px 0 0">Suara Kritis Arus Bawah Ranah Minang</p>
+<p style="margin:10px 0 0"><a href="index.html">&larr; Kembali ke beranda</a></p>
+</footer>
+</div>
+<script>
+(function () {
+  var WARNA = { 'Politik': '#7C242C', 'Berita Kota': '#7C242C', 'Hiburan': '#7C242C', 'Lingkungan': '#047857', 'Olahraga': '#047857', 'Nasional': '#5E1A21', 'Bisnis': '#CC9C44', 'Ekonomi': '#CC9C44', 'Teknologi': '#242424' };
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  var box = document.getElementById('artikel-isi');
+  var slug = new URLSearchParams(location.search).get('slug');
+  fetch('data/berita.json').then(function (r) { return r.json(); }).then(function (d) {
+    var items = (d.items || []).slice().sort(function (a, b) { return new Date(b.published_at) - new Date(a.published_at); });
+    var it = items.find(function (i) { return i.slug === slug; });
+    if (!it) { box.innerHTML = '<p class="meta">Artikel tidak ditemukan. <a href="index.html">Kembali ke beranda</a></p>'; return; }
+    document.title = it.title + ' · Haisumbar.com';
+    var warna = WARNA[it.category] || '#7C242C';
+    var teks = warna === '#CC9C44' ? '#242424' : '#FFFFFF';
+    var tgl = new Date(it.published_at).toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    var html = '<span class="badge" style="background:' + warna + ';color:' + teks + '">' + esc(String(it.category || '').toUpperCase()) + '</span>' +
+      '<h1 style="font-size:32px;line-height:1.2;margin-top:12px">' + esc(it.title) + '</h1>' +
+      '<p class="meta" style="margin:12px 0 0">' + esc(it.author || 'Redaksi') + ' · ' + esc(tgl) + '</p>';
+    if (it.image) html += '<img src="' + esc(it.image) + '" alt="" style="width:100%;margin-top:18px">';
+    html += '<div class="isi" style="margin-top:18px">' + String(it.body || '').split(/\n\s*\n/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('') + '</div>';
+    box.innerHTML = html;
+    var lain = items.filter(function (i) { return i.slug !== slug; }).slice(0, 3);
+    if (lain.length) {
+      document.getElementById('daftar-lainnya').innerHTML = lain.map(function (i) {
+        return '<a href="artikel.html?slug=' + encodeURIComponent(i.slug) + '"><span class="meta">' + esc(i.category) + '</span><br><b style="font-family:Newsreader,serif;font-size:18px">' + esc(i.title) + '</b></a>';
+      }).join('');
+      document.getElementById('lainnya').hidden = false;
+    }
+  }).catch(function () { box.innerHTML = '<p class="meta">Artikel gagal dimuat.</p>'; });
+})();
+</script>
 </body>
 </html>
