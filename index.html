@@ -3,40 +3,85 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Haisumbar</title>
+<title>Haisumbar · Berita terkini</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<header class="masthead">
-  <a class="brand" href="index.html">Haisumbar</a>
-  <nav id="nav" aria-label="Kategori"></nav>
+<div class="ad ad-banner" data-slot="banner-atas"></div>
+
+<header class="site-head">
+  <div class="bar">
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Buka menu"><span></span><span></span><span></span></button>
+    <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="30" height="30"><span>Haisumbar</span></a>
+    <button class="search-btn" id="searchBtn" aria-expanded="false" aria-controls="searchForm" aria-label="Cari">Cari</button>
+  </div>
+  <form class="search" id="searchForm" role="search" hidden>
+    <input id="q" type="search" placeholder="Cari judul berita" aria-label="Cari judul berita">
+  </form>
+  <nav class="menu" id="menu" aria-label="Menu utama" hidden>
+    <a href="index.html">Terkini</a>
+    <a href="#kat-politik">Politik</a>
+    <a href="#kat-ekonomi">Ekonomi</a>
+    <a href="#kat-teknologi">Teknologi</a>
+    <a href="#kat-olahraga">Olahraga</a>
+    <a href="#kat-hiburan">Hiburan</a>
+  </nav>
 </header>
-<main>
-  <div class="ad ad-banner" data-slot="banner-atas"></div>
-  <a id="breaking" class="breaking" href="#" hidden><span class="tag">Breaking news</span><span id="breaking-title"></span></a>
 
-  <section>
-    <h2 class="sec">Berita terkini</h2>
-    <ol class="latest" id="terkini"></ol>
-  </section>
+<a id="breaking" class="breaking" href="#" hidden><span class="tag">Breaking news</span><span id="breaking-title"></span></a>
 
-  <div class="ad ad-rect" data-slot="persegi-panjang"></div>
+<section class="headline" aria-label="Headline">
+  <div class="track" id="track"></div>
+  <div class="ctrl">
+    <button id="prev" aria-label="Sebelumnya">&lsaquo;</button>
+    <div class="dots" id="dots"></div>
+    <button id="next" aria-label="Berikutnya">&rsaquo;</button>
+  </div>
+</section>
 
-  <section>
-    <h2 class="sec">Berita per kategori</h2>
-    <div class="cats" id="kategori"></div>
-  </section>
+<div class="wrap">
+  <div class="main">
+    <section>
+      <h2 class="sec">Berita utama</h2>
+      <ol class="latest" id="terkini"></ol>
+    </section>
+    <div class="ad ad-rect" data-slot="persegi-panjang"></div>
+    <section>
+      <h2 class="sec">Kategori</h2>
+      <div class="cats" id="kategori"></div>
+    </section>
+    <div class="ad ad-strip" data-slot="sela-kategori"></div>
+    <section>
+      <h2 class="sec">Opini</h2>
+      <div id="opini"></div>
+    </section>
+  </div>
+</div>
 
-  <div class="ad ad-strip" data-slot="sela-kategori"></div>
-
-  <section>
-    <h2 class="sec">Opini</h2>
-    <div id="opini"></div>
-  </section>
-</main>
-<footer class="foot"><a href="admin/">Masuk redaksi</a></footer>
+<footer class="foot">
+  <div class="foot-in">
+    <div>
+      <p class="foot-name">Haisumbar</p>
+      <p class="foot-tag">Berita terkini, terpercaya, dan berimbang.</p>
+    </div>
+    <div>
+      <p class="foot-h">Akses cepat</p>
+      <ul class="quick">
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="redaksi.html">Redaksi</a></li>
+        <li><a href="pedoman.html">Pedoman Pemberitaan Media Siber</a></li>
+        <li><a href="iklan.html">Iklan dan Kerja Sama</a></li>
+        <li><a href="rilis.html">Rilis Pers</a></li>
+        <li><a href="kirim.html">Kirim Artikel</a></li>
+        <li><a href="peta.html">Peta Situs</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="copy">&copy; Haisumbar. Hak cipta dilindungi.</p>
+  <a class="admin-link" href="admin/">Masuk redaksi</a>
+</footer>
 <script src="assets/app.js"></script>
 </body>
 </html>
