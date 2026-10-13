@@ -10,40 +10,49 @@ public_folder: /images/uploads
 collections:
   - name: berita
     label: Berita
-    file: data/berita.json
-    fields:
-      - name: items
-        label: Daftar berita
-        widget: list
+    files:
+      - name: berita
+        label: Daftar Berita
+        file: data/berita.json
         fields:
-          - { name: title, label: Judul, widget: string }
-          - { name: slug, label: Slug (tanpa spasi), widget: string }
-          - { name: category, label: Kategori, widget: select, options: [Nasional, Politik, Lingkungan, Berita Kota, Bisnis, Ekonomi, Teknologi, Olahraga, Hiburan] }
-          - { name: breaking, label: Breaking news, widget: boolean, default: false }
-          - { name: author, label: Penulis, widget: string }
-          - { name: published_at, label: Waktu terbit, widget: datetime }
-          - { name: image, label: Gambar utama, widget: image, required: false }
-          - { name: body, label: Isi berita, widget: text }
+          - name: items
+            label: Daftar berita
+            widget: list
+            fields:
+              - { name: title, label: Judul, widget: string }
+              - { name: slug, label: Slug (tanpa spasi), widget: string }
+              - { name: category, label: Kategori, widget: select, options: [Nasional, Politik, Lingkungan, Berita Kota, Bisnis, Ekonomi, Teknologi, Olahraga, Hiburan] }
+              - { name: breaking, label: Breaking news, widget: boolean, default: false }
+              - { name: author, label: Penulis, widget: string }
+              - { name: published_at, label: Waktu terbit, widget: datetime }
+              - { name: image, label: Gambar utama, widget: image, required: false }
+              - { name: body, label: Isi berita, widget: text }
   - name: opini
     label: Opini
-    file: data/opini.json
-    fields:
-      - name: items
-        label: Daftar opini
-        widget: list
+    files:
+      - name: opini
+        label: Daftar Opini
+        file: data/opini.json
         fields:
-          - { name: title, label: Judul, widget: string }
-          - { name: author, label: Nama penulis, widget: string }
-          - { name: excerpt, label: Cuplikan, widget: text }
-          - { name: published_at, label: Waktu terbit, widget: datetime }
+          - name: items
+            label: Daftar opini
+            widget: list
+            fields:
+              - { name: title, label: Judul, widget: string }
+              - { name: author, label: Nama penulis, widget: string }
+              - { name: excerpt, label: Cuplikan, widget: text }
+              - { name: published_at, label: Waktu terbit, widget: datetime }
   - name: iklan
     label: Iklan
-    file: data/iklan.json
-    fields:
-      - name: items
-        label: Slot iklan
-        widget: list
+    files:
+      - name: iklan
+        label: Slot Iklan
+        file: data/iklan.json
         fields:
-          - { name: slot, label: Slot, widget: select, options: [banner-atas, persegi-panjang, sela-kategori] }
-          - { name: active, label: Tayangkan, widget: boolean, default: false }
-          - { name: code, label: Kode iklan (HTML), widget: text }
+          - name: items
+            label: Slot iklan
+            widget: list
+            fields:
+              - { name: slot, label: Slot, widget: select, options: [banner-atas, persegi-panjang, sela-kategori] }
+              - { name: active, label: Tayangkan, widget: boolean, default: false }
+              - { name: code, label: Kode iklan (HTML), widget: text }
