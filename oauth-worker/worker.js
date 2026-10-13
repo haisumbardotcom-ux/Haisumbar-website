@@ -6,15 +6,22 @@
 
 function halamanHasil(status, content) {
   var pesan = 'authorization:github:' + status + ':' + JSON.stringify(content);
-  return new Response(
-    '<!doctype html><html><body><script>' +
-    'var receiveMessage = function (e) {' +
-    '  window.opener.postMessage(' + JSON.stringify(pesan) + ', e.origin);' +
-    '  window.removeEventListener("message", receiveMessage, false);' +
-    '};' +
+  var asalCms = ['https://haisumbar-website.haisumbardotcom.workers.dev', 'https://haisumbar.com', 'https://www.haisumbar.com'];
+  var js =
+    'var pesan = ' + JSON.stringify(pesan) + ';' +
+    'var asalCms = ' + JSON.stringify(asalCms) + ';' +
+    'var terkirim = false;' +
+    'function kirim(origin) { if (terkirim || !window.opener) return; terkirim = true; window.opener.postMessage(pesan, origin); document.getElementById("st").textContent = "Login selesai — jendela ini boleh ditutup."; setTimeout(function(){ window.close(); }, 600); }' +
+    'var receiveMessage = function (e) { kirim(e.origin); };' +
     'window.addEventListener("message", receiveMessage, false);' +
-    'window.opener.postMessage("authorizing:github", "*");' +
-    '</script><p>Memproses login… jendela ini tertutup otomatis.</p></body></html>',
+    'if (window.opener) { window.opener.postMessage("authorizing:github", "*");' +
+    '  var ping = setInterval(function(){ if (terkirim) { clearInterval(ping); return; } window.opener.postMessage("authorizing:github", "*"); }, 1000);' +
+    '  setTimeout(function(){ if (!terkirim) { asalCms.forEach(function(o){ if (!terkirim) kirim(o); }); } }, 3000);' +
+    '} else {' +
+    '  document.getElementById("st").textContent = "Jendela admin pembuka tidak ditemukan. Tutup jendela ini, lalu buka halaman /admin langsung di browser Chrome (bukan dari dalam aplikasi lain), dan klik Login with GitHub lagi.";' +
+    '}';
+  return new Response(
+    '<!doctype html><html><body><p id="st">Memproses login… jendela ini tertutup otomatis.</p><script>' + js + '</script></body></html>',
     { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
   );
 }
