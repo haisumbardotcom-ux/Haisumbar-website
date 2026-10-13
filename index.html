@@ -3,85 +3,242 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Haisumbar · Berita terkini</title>
+<title>Haisumbar.com – Suara Kritis Arus Bawah Ranah Minang</title>
+<meta name="description" content="Portal media digital dan jurnalisme data Haisumbar.com.">
+<link rel="icon" href="assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+
+body{margin:0;background:#F7F6F4;color:#242424;font-family:Inter,system-ui,sans-serif}
+a{color:#242424;text-decoration:none}a:hover{color:#7C242C}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
+.ph{background:#E9E4DA;display:flex;align-items:center;justify-content:center;font-size:12px;color:#5C5C5C}
+.sl{position:absolute;left:0;right:0;top:0;opacity:0;animation:cf 15s infinite}
+.dt{width:28px;height:4px;background:#D9D6CF;animation:dt 15s infinite}
+.k1{animation-delay:0s}.k2{animation-delay:3s}.k3{animation-delay:6s}.k4{animation-delay:9s}.k5{animation-delay:12s}
+@keyframes cf{0%{opacity:0}2%{opacity:1}17%{opacity:1}20%{opacity:0}100%{opacity:0}}
+@keyframes dt{0%{background:#7C242C}19%{background:#7C242C}20%,100%{background:#D9D6CF}}
+.card{background:#FFFFFF;border:1px solid #E5E3DE}
+.hm:checked ~ .drawer{display:block}
+.drawer{display:none}
+
+
+
+a{color:#242424;text-decoration:none}
+h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
+.ph{background:#E9E4DA;display:flex;align-items:center;justify-content:center;font-size:12px;color:#5C5C5C}
+.sl{position:absolute;left:0;right:0;top:0;opacity:0;animation:cf 15s infinite}
+.dt{width:22px;height:4px;background:#D9D6CF;animation:dt 15s infinite}
+.k1{animation-delay:0s}.k2{animation-delay:3s}.k3{animation-delay:6s}.k4{animation-delay:9s}.k5{animation-delay:12s}
+@keyframes cf{0%{opacity:0}2%{opacity:1}17%{opacity:1}20%{opacity:0}100%{opacity:0}}
+@keyframes dt{0%{background:#7C242C}19%{background:#7C242C}20%,100%{background:#D9D6CF}}
+.hm:checked ~ .drawer{display:block}
+.drawer{display:none}
+.row{display:grid;grid-template-columns:24px 96px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid #E5E3DE;align-items:start}
+.card{background:#FFFFFF;border:1px solid #E5E3DE;margin-bottom:12px}
+
+
+.drawer{display:none}
+#hm:checked ~ .dd{display:block}
+#hmm:checked ~ .mm{display:block}
+.d-only{display:none}
+@media (min-width:768px){.m-only{display:none}.d-only{display:block}}
+
+</style>
 </head>
 <body>
-<div class="ad ad-banner" data-slot="banner-atas"></div>
+<div class="m-only">
 
-<header class="site-head">
-  <div class="bar">
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Buka menu"><span></span><span></span><span></span></button>
-    <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="30" height="30"><span>Haisumbar</span></a>
-    <button class="search-btn" id="searchBtn" aria-expanded="false" aria-controls="searchForm" aria-label="Cari">Cari</button>
-  </div>
-  <form class="search" id="searchForm" role="search" hidden>
-    <input id="q" type="search" placeholder="Cari judul berita" aria-label="Cari judul berita">
-  </form>
-  <nav class="menu" id="menu" aria-label="Menu utama" hidden>
-    <a href="index.html">Terkini</a>
-    <a href="#kat-politik">Politik</a>
-    <a href="#kat-ekonomi">Ekonomi</a>
-    <a href="#kat-teknologi">Teknologi</a>
-    <a href="#kat-olahraga">Olahraga</a>
-    <a href="#kat-hiburan">Hiburan</a>
-  </nav>
+
+<div style="width:100%;max-width:390px;margin:0 auto;background:#FFFFFF;box-sizing:border-box">
+
+<input type="checkbox" id="hmm" class="hm" style="position:absolute;opacity:0;pointer-events:none">
+<header style="position:sticky;top:0;z-index:2;background:#FFFFFF;display:flex;align-items:center;justify-content:space-between;padding:8px 12px 8px 14px;border-bottom:1px solid #E5E3DE">
+<div style="display:flex;align-items:center;gap:8px">
+<img src="assets/logo-haisumbar.png" alt="Logo Haisumbar" style="height:40px;width:auto">
+<span style="font-family:Newsreader,serif;font-size:19px;font-weight:600;color:#7C242C">Haisumbar.com</span>
+</div>
+<div style="display:flex;align-items:center">
+<a href="#" aria-label="Cari" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></a>
+<label for="hmm" aria-label="Menu" style="width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></label>
+</div>
 </header>
-
-<a id="breaking" class="breaking" href="#" hidden><span class="tag">Breaking news</span><span id="breaking-title"></span></a>
-
-<section class="headline" aria-label="Headline">
-  <div class="track" id="track"></div>
-  <div class="ctrl">
-    <button id="prev" aria-label="Sebelumnya">&lsaquo;</button>
-    <div class="dots" id="dots"></div>
-    <button id="next" aria-label="Berikutnya">&rsaquo;</button>
-  </div>
-</section>
-
-<div class="wrap">
-  <div class="main">
-    <section>
-      <h2 class="sec">Berita utama</h2>
-      <ol class="latest" id="terkini"></ol>
-    </section>
-    <div class="ad ad-rect" data-slot="persegi-panjang"></div>
-    <section>
-      <h2 class="sec">Kategori</h2>
-      <div class="cats" id="kategori"></div>
-    </section>
-    <div class="ad ad-strip" data-slot="sela-kategori"></div>
-    <section>
-      <h2 class="sec">Opini</h2>
-      <div id="opini"></div>
-    </section>
-  </div>
+<div class="drawer mm" style="padding:8px 16px 16px;border-bottom:1px solid #E5E3DE;background:#F7F6F4;font-size:15px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 16px;padding:8px 0">
+<a href="#" style="padding:10px 0">Nasional</a><a href="#" style="padding:10px 0">Politik</a><a href="#" style="padding:10px 0">Lingkungan</a><a href="#" style="padding:10px 0">Berita Kota</a><a href="#" style="padding:10px 0">Bisnis</a><a href="#" style="padding:10px 0">Mild Report</a><a href="#" style="padding:10px 0">Indepth</a><a href="#" style="padding:10px 0">Infografik Data</a><a href="#" style="padding:10px 0">Periksa Fakta</a><a href="#" style="padding:10px 0">Langganan</a>
+</div>
 </div>
 
-<footer class="foot">
-  <div class="foot-in">
-    <div>
-      <p class="foot-name">Haisumbar</p>
-      <p class="foot-tag">Berita terkini, terpercaya, dan berimbang.</p>
-    </div>
-    <div>
-      <p class="foot-h">Akses cepat</p>
-      <ul class="quick">
-        <li><a href="tentang.html">Tentang Kami</a></li>
-        <li><a href="redaksi.html">Redaksi</a></li>
-        <li><a href="pedoman.html">Pedoman Pemberitaan Media Siber</a></li>
-        <li><a href="iklan.html">Iklan dan Kerja Sama</a></li>
-        <li><a href="rilis.html">Rilis Pers</a></li>
-        <li><a href="kirim.html">Kirim Artikel</a></li>
-        <li><a href="peta.html">Peta Situs</a></li>
-      </ul>
-    </div>
-  </div>
-  <p class="copy">&copy; Haisumbar. Hak cipta dilindungi.</p>
-  <a class="admin-link" href="admin/">Masuk redaksi</a>
+<div style="background:#B91C1C;color:#FFFFFF;font-size:13px;padding:10px 16px;display:flex;gap:8px;align-items:center">
+<b style="background:#FFFFFF;color:#B91C1C;padding:1px 6px;font-size:11px">LIVE</b>
+<span>Jalan nasional di Pesisir Selatan terputus longsor, lalu lintas dialihkan</span>
+</div>
+
+<div style="display:flex;gap:8px;overflow-x:auto;padding:12px 16px;border-bottom:1px solid #E5E3DE;font-size:14px;font-weight:500">
+<a href="#" style="padding:8px 14px;background:#7C242C;color:#FFFFFF;white-space:nowrap">Nasional</a>
+<a href="#" style="padding:8px 14px;border:1px solid #D9D6CF;white-space:nowrap">Politik</a>
+<a href="#" style="padding:8px 14px;border:1px solid #D9D6CF;white-space:nowrap">Lingkungan</a>
+<a href="#" style="padding:8px 14px;border:1px solid #D9D6CF;white-space:nowrap">Berita Kota</a>
+<a href="#" style="padding:8px 14px;border:1px solid #D9D6CF;white-space:nowrap">Bisnis</a>
+</div>
+
+<section style="padding:16px 16px 8px">
+<div style="position:relative;height:430px">
+<div class="sl k1"><div class="ph" style="aspect-ratio:3/2">[Foto 3:2]</div><span style="display:inline-block;margin-top:12px;background:#7C242C;color:#FFFFFF;font-size:11px;padding:3px 8px;font-weight:600">INVESTIGASI POLITIK</span><h1 style="font-size:26px;line-height:1.2;margin-top:8px">Dana Desa Mengalir, Jalan Tak Pernah Jadi: Jejak Proyek Fiktif di Pesisir Selatan</h1><p style="font-size:14px;line-height:1.6;margin:8px 0 0">Dokumen APBDes dan wawancara warga menunjukkan tiga desa menerima anggaran jalan yang belum selesai.</p><p style="font-size:12px;color:#5C5C5C;margin:8px 0 0">Dina Anggraini &amp; Tim Riset · 8 menit baca</p></div>
+<div class="sl k2"><div class="ph" style="aspect-ratio:3/2">[Foto 3:2]</div><span style="display:inline-block;margin-top:12px;background:#047857;color:#FFFFFF;font-size:11px;padding:3px 8px;font-weight:600">LAPORAN MENDALAM</span><h1 style="font-size:26px;line-height:1.2;margin-top:8px">Tutupan Hutan di Hulu Batang Anai Menyusut 12% dalam Lima Tahun</h1><p style="font-size:14px;line-height:1.6;margin:8px 0 0">Citra satelit memperlihatkan pembukaan lahan terus berlangsung di kawasan lindung sejak 2021.</p><p style="font-size:12px;color:#5C5C5C;margin:8px 0 0">Tim Data Haisumbar · 6 menit baca</p></div>
+<div class="sl k3"><div class="ph" style="aspect-ratio:3/2">[Foto 3:2]</div><span style="display:inline-block;margin-top:12px;background:#7C242C;color:#FFFFFF;font-size:11px;padding:3px 8px;font-weight:600">BERITA KOTA</span><h1 style="font-size:26px;line-height:1.2;margin-top:8px">Uji Coba Bus Listrik Trayek Padang–Bandara Dimulai Pekan Depan</h1><p style="font-size:14px;line-height:1.6;margin:8px 0 0">Dinas Perhubungan menargetkan armada listrik beroperasi penuh pada akhir Oktober.</p><p style="font-size:12px;color:#5C5C5C;margin:8px 0 0">Rangga Pratama · 4 menit baca</p></div>
+<div class="sl k4"><div class="ph" style="aspect-ratio:3/2">[Foto 3:2]</div><span style="display:inline-block;margin-top:12px;background:#5E1A21;color:#FFFFFF;font-size:11px;padding:3px 8px;font-weight:600">NASIONAL</span><h1 style="font-size:26px;line-height:1.2;margin-top:8px">Sekolah 3T di Mentawai Masih Kekurangan Guru Mata Pelajaran Inti</h1><p style="font-size:14px;line-height:1.6;margin:8px 0 0">Hanya separuh kebutuhan guru matematika dan IPA yang terisi hingga semester ini.</p><p style="font-size:12px;color:#5C5C5C;margin:8px 0 0">Dina Anggraini · 7 menit baca</p></div>
+<div class="sl k5"><div class="ph" style="aspect-ratio:3/2">[Foto 3:2]</div><span style="display:inline-block;margin-top:12px;background:#CC9C44;color:#242424;font-size:11px;padding:3px 8px;font-weight:600">BISNIS</span><h1 style="font-size:26px;line-height:1.2;margin-top:8px">Harga Cabai Merah di Pasar Raya Padang Turun Dua Pekan Berturut-turut</h1><p style="font-size:14px;line-height:1.6;margin:8px 0 0">Pasokan dari Solok kembali normal setelah hujan deras mereda.</p><p style="font-size:12px;color:#5C5C5C;margin:8px 0 0">Tim Ekonomi Haisumbar · 3 menit baca</p></div>
+</div>
+<div style="display:flex;gap:6px;margin-top:12px"><span class="dt k1"></span><span class="dt k2"></span><span class="dt k3"></span><span class="dt k4"></span><span class="dt k5"></span></div>
+</section>
+
+<section style="padding:12px 16px 8px">
+<h2 style="font-size:22px;border-bottom:2px solid #242424;padding-bottom:6px">10 Berita Utama</h2>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">1</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">POLITIK</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">DPRD Sumbar Bahas Revisi Perda Tata Ruang Kawasan Pesisir</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">15 menit lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">2</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#047857;color:#FFFFFF;padding:2px 6px;font-weight:600">LINGKUNGAN</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Tutupan Hutan di Hulu Batang Anai Menyusut 12% dalam Lima Tahun</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">1 jam lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">3</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">BERITA KOTA</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Uji Coba Bus Listrik Trayek Padang–Bandara Dimulai Pekan Depan</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">2 jam lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">4</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#5E1A21;color:#FFFFFF;padding:2px 6px;font-weight:600">NASIONAL</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Sekolah 3T di Mentawai Masih Kekurangan Guru Mata Pelajaran Inti</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">3 jam lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">5</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#CC9C44;color:#242424;padding:2px 6px;font-weight:600">BISNIS</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Harga Cabai Merah di Pasar Raya Padang Turun Dua Pekan Berturut-turut</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">4 jam lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">6</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">POLITIK</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Panja DPRD Bentuk Tim Verifikasi Laporan Reses yang Belum Tuntas</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">5 jam lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">7</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#047857;color:#FFFFFF;padding:2px 6px;font-weight:600">LINGKUNGAN</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">PLTS Atap di Sekolah Mentawai Baru Terpasang 30 Persen dari Target</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">6 jam lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">8</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">BERITA KOTA</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Izin Bangunan di Sempadan Sungai Padang Dicabut Setelah Audit</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">7 jam lalu</p></div></div>
+<div class="row"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">9</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#5E1A21;color:#FFFFFF;padding:2px 6px;font-weight:600">NASIONAL</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Dana BOS Triwulan III Cair Tepat Waktu di Sebagian Kabupaten</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">8 jam lalu</p></div></div>
+<div class="row" style="border-bottom:0"><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">10</b><div class="ph" style="height:72px">[Thumb]</div><div><span style="font-size:10px;background:#CC9C44;color:#242424;padding:2px 6px;font-weight:600">BISNIS</span><h3 style="font-size:16px;margin-top:4px;line-height:1.3">Pemprov Sumbar Gelar Operasi Pasar Beras untuk Tekan Harga</h3><p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">9 jam lalu</p></div></div>
+</section>
+
+<section style="padding:16px;background:#5E1A21;color:#FFFFFF;margin-top:12px">
+<span style="font-size:11px;color:#CC9C44;font-weight:600">INFOGRAFIK DATA RISET</span>
+<p style="font-size:26px;font-family:Newsreader,serif;margin:6px 0">62%</p>
+<p style="font-size:14px;line-height:1.5;margin:0 0 8px">Proyek desa di Sumbar yang selesai tepat waktu sepanjang 2025.</p>
+<a href="#" style="color:#CC9C44;font-weight:600;font-size:14px">Arsip infografik &rarr;</a>
+</section>
+
+<section style="padding:16px">
+<h2 style="font-size:22px;border-bottom:2px solid #242424;padding-bottom:6px;margin-bottom:8px">Rubrik Khusus</h2>
+<div class="card"><div class="ph" style="height:140px">[Foto liputan]</div><div style="padding:12px"><span style="font-size:11px;color:#7C242C;font-weight:600">BERITA KOTA · PADANG</span><h3 style="font-size:18px;margin-top:4px">Izin Bangunan di Sempadan Sungai Dicabut</h3><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Trotoar Jalan Hang Tuah dibongkar untuk pelebaran drainase.</p></div></div>
+<div class="card"><div class="ph" style="height:140px">[Foto liputan]</div><div style="padding:12px"><span style="font-size:11px;color:#047857;font-weight:600">LINGKUNGAN · MENTAWAI</span><h3 style="font-size:18px;margin-top:4px">PLTS Sekolah Baru Terpasang 30 Persen</h3><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Baterai tertahan di pelabuhan akibat cuaca buruk.</p></div></div>
+<div class="card"><div class="ph" style="height:140px">[Foto liputan]</div><div style="padding:12px"><span style="font-size:11px;color:#7C242C;font-weight:600">POLITIK · SUMBAR</span><h3 style="font-size:18px;margin-top:4px">Panja DPRD Bentuk Tim Verifikasi Reses</h3><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Laporan kunjungan kerja tiga komisi belum lengkap.</p></div></div>
+<div class="card"><div class="ph" style="height:140px">[Foto liputan]</div><div style="padding:12px"><span style="font-size:11px;color:#5E1A21;font-weight:600">NASIONAL · 3T</span><h3 style="font-size:18px;margin-top:4px">Anggaran Pendidikan Daerah 3T Masih Tertahan</h3><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Guru honorer di Mentawai belum menerima tunjangan.</p></div></div>
+</section>
+
+<footer style="padding:24px 16px 32px;font-size:13px;background:#F7F6F4">
+<b>Haisumbar.com</b>
+<p style="margin:6px 0 0;color:#5C5C5C">Suara Kritis Arus Bawah Ranah Minang</p>
+<p style="margin:6px 0 16px;color:#5C5C5C">Terdaftar di Dewan Pers, No. 000/DP/2026 (dummy)</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px"><a href="#">Redaksi</a><a href="#">Pengaduan</a><a href="#">Hak Jawab</a><a href="#">Privasi</a></div>
+<label style="font-weight:600">Newsletter riset pagi/sore</label>
+<input aria-label="Alamat email" placeholder="Email Anda" style="display:block;width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid #242424;font-size:15px">
+<button style="width:100%;margin-top:8px;min-height:48px;background:#7C242C;color:#FFFFFF;border:0;font-weight:600;font-size:15px;cursor:pointer">Berlangganan</button>
 </footer>
-<script src="assets/app.js"></script>
+</div>
+
+</div>
+<div class="d-only">
+
+
+<div style="max-width:1280px;margin:0 auto;background:#FFFFFF;box-sizing:border-box">
+
+<div style="background:#242424;color:#F7F6F4;font-size:12px;display:flex;justify-content:space-between;padding:8px 32px">
+<span>Senin, 13 Oktober 2026 · Padang</span>
+<span style="display:flex;gap:20px"><a href="#" style="color:#F7F6F4">Aksesibilitas</a><a href="#" style="color:#CC9C44;font-weight:600">Langganan</a></span>
+</div>
+
+<input type="checkbox" id="hm" class="hm" style="position:absolute;opacity:0;pointer-events:none">
+<header style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #E5E3DE;gap:16px">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="assets/logo-haisumbar.png" alt="Logo Haisumbar" style="height:64px;width:auto">
+<div style="border-left:1px solid #D9D6CF;padding-left:14px"><div style="font-family:Newsreader,serif;font-size:26px;font-weight:600;color:#7C242C;line-height:1">Haisumbar.com</div><div style="font-size:12px;color:#5C5C5C;margin-top:4px">Suara Kritis Arus Bawah Ranah Minang</div></div>
+</div>
+<nav style="display:flex;gap:22px;font-size:15px;font-weight:500">
+<a href="#">Nasional</a><a href="#">Politik</a><a href="#">Lingkungan</a><a href="#">Berita Kota</a><a href="#">Bisnis</a>
+</nav>
+<div style="display:flex;gap:8px;align-items:center">
+<a href="#" aria-label="Cari" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></a>
+<label for="hm" aria-label="Menu" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#242424" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></label>
+</div>
+</header>
+<div class="drawer dd" style="padding:16px 32px;border-bottom:1px solid #E5E3DE;background:#F7F6F4;display:flex;gap:24px;flex-wrap:wrap;font-size:15px">
+<a href="#">Mild Report</a><a href="#">Indepth</a><a href="#">Infografik Data</a><a href="#">Periksa Fakta</a><a href="#">Langganan</a>
+</div>
+
+<div style="display:flex;gap:24px;padding:10px 32px;background:#F7F6F4;font-size:13px;border-bottom:1px solid #E5E3DE;align-items:center">
+<span style="color:#FFFFFF;background:#B91C1C;padding:2px 8px;font-weight:600">LIVE</span>
+<span>Jalan nasional di Pesisir Selatan terputus longsor, lalu lintas dialihkan lewat jalur bukit</span>
+</div>
+
+<main style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:32px;padding:32px;box-sizing:border-box">
+<section>
+<div style="position:relative;height:540px">
+<div class="sl k1"><div class="ph" style="aspect-ratio:16/9">[Foto jurnalistik 16:9]</div><span style="display:inline-block;margin-top:16px;background:#7C242C;color:#FFFFFF;font-size:12px;padding:3px 10px;font-weight:600">INVESTIGASI POLITIK</span><h1 style="font-size:40px;line-height:1.15;margin-top:12px">Dana Desa Mengalir, Jalan Tak Pernah Jadi: Jejak Proyek Fiktif di Pesisir Selatan</h1><p style="font-size:17px;line-height:1.6;margin:12px 0 0">Dokumen APBDes, kontrak, dan wawancara warga menunjukkan tiga desa menerima anggaran jalan yang sebagian besar belum selesai dibangun.</p><p style="font-size:13px;color:#5C5C5C;margin:14px 0 0">Dina Anggraini &amp; Tim Riset · 8 menit baca · Skor signifikansi 87</p></div>
+<div class="sl k2"><div class="ph" style="aspect-ratio:16/9">[Foto jurnalistik 16:9]</div><span style="display:inline-block;margin-top:16px;background:#047857;color:#FFFFFF;font-size:12px;padding:3px 10px;font-weight:600">LAPORAN MENDALAM</span><h1 style="font-size:40px;line-height:1.15;margin-top:12px">Tutupan Hutan di Hulu Batang Anai Menyusut 12% dalam Lima Tahun</h1><p style="font-size:17px;line-height:1.6;margin:12px 0 0">Citra satelit dan peta kawasan hutan memperlihatkan pembukaan lahan terus berlangsung di kawasan lindung sejak 2021.</p><p style="font-size:13px;color:#5C5C5C;margin:14px 0 0">Tim Data Haisumbar · 6 menit baca · Skor signifikansi 79</p></div>
+<div class="sl k3"><div class="ph" style="aspect-ratio:16/9">[Foto jurnalistik 16:9]</div><span style="display:inline-block;margin-top:16px;background:#7C242C;color:#FFFFFF;font-size:12px;padding:3px 10px;font-weight:600">BERITA KOTA</span><h1 style="font-size:40px;line-height:1.15;margin-top:12px">Uji Coba Bus Listrik Trayek Padang–Bandara Dimulai Pekan Depan</h1><p style="font-size:17px;line-height:1.6;margin:12px 0 0">Dinas Perhubungan menargetkan armada listrik beroperasi penuh pada akhir Oktober, dengan tiga titik pengisian daya awal.</p><p style="font-size:13px;color:#5C5C5C;margin:14px 0 0">Rangga Pratama · 4 menit baca · Skor signifikansi 64</p></div>
+<div class="sl k4"><div class="ph" style="aspect-ratio:16/9">[Foto jurnalistik 16:9]</div><span style="display:inline-block;margin-top:16px;background:#5E1A21;color:#FFFFFF;font-size:12px;padding:3px 10px;font-weight:600">NASIONAL</span><h1 style="font-size:40px;line-height:1.15;margin-top:12px">Sekolah 3T di Kepulauan Mentawai Masih Kekurangan Guru Mata Pelajaran Inti</h1><p style="font-size:17px;line-height:1.6;margin:12px 0 0">Data dinas pendidikan mencatat hanya separuh kebutuhan guru matematika dan IPA yang terisi hingga semester ini.</p><p style="font-size:13px;color:#5C5C5C;margin:14px 0 0">Dina Anggraini · 7 menit baca · Skor signifikansi 71</p></div>
+<div class="sl k5"><div class="ph" style="aspect-ratio:16/9">[Foto jurnalistik 16:9]</div><span style="display:inline-block;margin-top:16px;background:#CC9C44;color:#242424;font-size:12px;padding:3px 10px;font-weight:600">BISNIS</span><h1 style="font-size:40px;line-height:1.15;margin-top:12px">Harga Cabai Merah di Pasar Raya Padang Turun Dua Pekan Berturut-turut</h1><p style="font-size:17px;line-height:1.6;margin:12px 0 0">Pedagang menyebut pasokan dari Solok kembali normal setelah hujan deras mereda di sentra produksi.</p><p style="font-size:13px;color:#5C5C5C;margin:14px 0 0">Tim Ekonomi Haisumbar · 3 menit baca · Skor signifikansi 58</p></div>
+</div>
+<div style="display:flex;gap:8px;margin-top:20px;align-items:center">
+<span class="dt k1"></span><span class="dt k2"></span><span class="dt k3"></span><span class="dt k4"></span><span class="dt k5"></span>
+</div>
+</section>
+
+<aside style="display:flex;flex-direction:column;gap:24px">
+<div style="border-top:4px solid #CC9C44;padding-top:12px">
+<h2 style="font-size:22px;margin-bottom:12px">Paling Populer (24 Jam)</h2>
+<ol style="margin:0;padding:0;list-style:none;font-size:15px;line-height:1.4">
+<li style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #E5E3DE"><b style="font-size:24px;color:#CC9C44;font-family:Newsreader,serif">1</b>Tiga Calon Kepala Daerah Adu Visi soal Pesisir Selatan</li>
+<li style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #E5E3DE"><b style="font-size:24px;color:#CC9C44;font-family:Newsreader,serif">2</b>Cara Cek Hoaks Video Banjir Lama yang Beredar Lagi</li>
+<li style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #E5E3DE"><b style="font-size:24px;color:#CC9C44;font-family:Newsreader,serif">3</b>Harga Beras Naik, Pemprov Sumbar Gelar Operasi Pasar</li>
+<li style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #E5E3DE"><b style="font-size:24px;color:#CC9C44;font-family:Newsreader,serif">4</b>Kronologi Lengkap Pengalihan Lalu Lintas Jalan Nasional Pesisir</li>
+<li style="display:flex;gap:12px;padding:10px 0"><b style="font-size:24px;color:#CC9C44;font-family:Newsreader,serif">5</b>Dana Desa 2025: Cara Warga Memantau Realisasi Anggaran di Kantor Nagari</li>
+</ol>
+</div>
+<div style="background:#5E1A21;color:#FFFFFF;padding:20px">
+<span style="font-size:12px;color:#CC9C44;font-weight:600">INFOGRAFIK DATA RISET</span>
+<p style="font-size:28px;font-family:Newsreader,serif;margin:8px 0">62%</p>
+<p style="font-size:14px;margin:0 0 14px;line-height:1.5">Proyek desa di Sumbar yang selesai tepat waktu sepanjang 2025.</p>
+<a href="#" style="color:#CC9C44;font-weight:600;font-size:14px">Arsip infografik &rarr;</a>
+</div>
+</aside>
+</main>
+
+<section style="padding:0 32px 32px;box-sizing:border-box">
+<h2 style="font-size:26px;border-bottom:2px solid #242424;padding-bottom:8px;margin-bottom:8px">10 Berita Utama</h2>
+<ol style="margin:0;padding:0;list-style:none">
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">1</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">POLITIK</span><h3 style="font-size:19px;margin-top:6px">DPRD Sumbar Bahas Revisi Perda Tata Ruang Kawasan Pesisir</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Pembahasan Raperda menyoroti izin bangunan di kawasan lindung dan sempadan pantai.</p></div><span style="font-size:12px;color:#5C5C5C">15 menit lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">2</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#047857;color:#FFFFFF;padding:2px 6px;font-weight:600">LINGKUNGAN</span><h3 style="font-size:19px;margin-top:6px">Tutupan Hutan di Hulu Batang Anai Menyusut 12% dalam Lima Tahun</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Data citra satelit dan peta kawasan hutan menunjukkan laju penyusutan tertinggi sejak 2021.</p></div><span style="font-size:12px;color:#5C5C5C">1 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">3</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">BERITA KOTA</span><h3 style="font-size:19px;margin-top:6px">Uji Coba Bus Listrik Trayek Padang–Bandara Dimulai Pekan Depan</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Dinas Perhubungan menargetkan armada listrik beroperasi penuh pada akhir Oktober.</p></div><span style="font-size:12px;color:#5C5C5C">2 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">4</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#5E1A21;color:#FFFFFF;padding:2px 6px;font-weight:600">NASIONAL</span><h3 style="font-size:19px;margin-top:6px">Sekolah 3T di Kepulauan Mentawai Masih Kekurangan Guru Mata Pelajaran Inti</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Hanya separuh kebutuhan guru matematika dan IPA yang terisi hingga semester ini.</p></div><span style="font-size:12px;color:#5C5C5C">3 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">5</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#CC9C44;color:#242424;padding:2px 6px;font-weight:600">BISNIS</span><h3 style="font-size:19px;margin-top:6px">Harga Cabai Merah di Pasar Raya Padang Turun Dua Pekan Berturut-turut</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Pasokan dari Solok kembali normal setelah hujan deras mereda.</p></div><span style="font-size:12px;color:#5C5C5C">4 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">6</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">POLITIK</span><h3 style="font-size:19px;margin-top:6px">Panja DPRD Bentuk Tim Verifikasi Laporan Reses yang Belum Tuntas</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Sejumlah anggota dewan diminta melengkapi dokumen dalam dua minggu.</p></div><span style="font-size:12px;color:#5C5C5C">5 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">7</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#047857;color:#FFFFFF;padding:2px 6px;font-weight:600">LINGKUNGAN</span><h3 style="font-size:19px;margin-top:6px">PLTS Atap di Sekolah Mentawai Baru Terpasang 30 Persen dari Target</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Kendala utama adalah distribusi baterai dan akses kapal logistik.</p></div><span style="font-size:12px;color:#5C5C5C">6 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">8</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#7C242C;color:#FFFFFF;padding:2px 6px;font-weight:600">BERITA KOTA</span><h3 style="font-size:19px;margin-top:6px">Izin Bangunan di Sempadan Sungai Padang Dicabut Setelah Audit Tata Ruang</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Audit menemukan 40 bangunan berdiri di atas garis sempadan.</p></div><span style="font-size:12px;color:#5C5C5C">7 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid #E5E3DE;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">9</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#5E1A21;color:#FFFFFF;padding:2px 6px;font-weight:600">NASIONAL</span><h3 style="font-size:19px;margin-top:6px">Dana BOS Triwulan III Cair Tepat Waktu di Sebagian Kabupaten</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Beberapa daerah masih menunggu verifikasi laporan semester.</p></div><span style="font-size:12px;color:#5C5C5C">8 jam lalu</span></li>
+<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;align-items:center"><b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">10</b><div class="ph" style="height:110px">[Thumbnail]</div><div><span style="font-size:11px;background:#CC9C44;color:#242424;padding:2px 6px;font-weight:600">BISNIS</span><h3 style="font-size:19px;margin-top:6px">Pemprov Sumbar Gelar Operasi Pasar Beras untuk Tekan Harga</h3><p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">Operasi pasar digelar di tiga kabupaten selama dua minggu.</p></div><span style="font-size:12px;color:#5C5C5C">9 jam lalu</span></li>
+</ol>
+</section>
+
+<section style="background:#242424;color:#F7F6F4;padding:32px;box-sizing:border-box">
+<h2 style="font-size:26px;color:#FFFFFF;margin-bottom:20px">Rubrik Khusus</h2>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px">
+<div class="card" style="color:#242424;padding:0"><div class="ph" style="height:150px">[Foto liputan]</div><div style="padding:16px"><span style="font-size:11px;color:#7C242C;font-weight:600">BERITA KOTA · PADANG</span><h3 style="font-size:19px;margin-top:6px">Izin Bangunan di Sempadan Sungai Dicabut</h3><p style="font-size:13px;margin:10px 0 0;line-height:1.5">Trotoar Jalan Hang Tuah dibongkar untuk pelebaran drainase.</p><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Angkot Padang–Lubuk Begalung kembali beroperasi.</p></div></div>
+<div class="card" style="color:#242424;padding:0"><div class="ph" style="height:150px">[Foto liputan]</div><div style="padding:16px"><span style="font-size:11px;color:#047857;font-weight:600">LINGKUNGAN · MENTAWAI</span><h3 style="font-size:19px;margin-top:6px">PLTS Sekolah Baru Terpasang 30 Persen</h3><p style="font-size:13px;margin:10px 0 0;line-height:1.5">Baterai tertahan di pelabuhan akibat cuaca buruk.</p><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Tiga sekolah pesisir menunggu jadwal kapal logistik.</p></div></div>
+<div class="card" style="color:#242424;padding:0"><div class="ph" style="height:150px">[Foto liputan]</div><div style="padding:16px"><span style="font-size:11px;color:#7C242C;font-weight:600">POLITIK · SUMBAR</span><h3 style="font-size:19px;margin-top:6px">Panja DPRD Bentuk Tim Verifikasi Reses</h3><p style="font-size:13px;margin:10px 0 0;line-height:1.5">Laporan kunjungan kerja tiga komisi belum lengkap.</p><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Rapat evaluasi dijadwalkan pekan depan.</p></div></div>
+<div class="card" style="color:#242424;padding:0"><div class="ph" style="height:150px">[Foto liputan]</div><div style="padding:16px"><span style="font-size:11px;color:#5E1A21;font-weight:600">NASIONAL · 3T</span><h3 style="font-size:19px;margin-top:6px">Anggaran Pendidikan Daerah 3T Masih Tertahan</h3><p style="font-size:13px;margin:10px 0 0;line-height:1.5">Guru honorer di Kepulauan Mentawai belum menerima tunjangan.</p><p style="font-size:13px;margin:6px 0 0;line-height:1.5">Dinas pendidikan menyebut revisi DPA sedang berjalan.</p></div></div>
+</div>
+</section>
+
+<footer style="padding:28px 32px;font-size:13px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;background:#F7F6F4">
+<div><b>Haisumbar.com</b><p style="margin:6px 0 0;color:#5C5C5C">Suara Kritis Arus Bawah Ranah Minang</p><p style="margin:6px 0 0;color:#5C5C5C">Terdaftar di Dewan Pers, No. 000/DP/2026 (dummy)</p></div>
+<div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center"><a href="#">Redaksi</a><a href="#">Pengaduan Pembaca</a><a href="#">Hak Jawab</a><a href="#">Kebijakan Privasi</a></div>
+<div style="display:flex;flex-direction:column;gap:8px;min-width:240px"><span>Newsletter riset pagi/sore</span><input aria-label="Alamat email" placeholder="Email Anda" style="padding:10px;border:1px solid #242424"><button style="padding:10px;background:#7C242C;color:#FFFFFF;border:0;font-weight:600;cursor:pointer">Berlangganan</button></div>
+</footer>
+</div>
+
+</div>
 </body>
 </html>
