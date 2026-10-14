@@ -18,10 +18,10 @@ body{margin:0;background:#F7F6F4;color:#242424;font-family:Inter,system-ui,sans-
 a{color:#242424;text-decoration:none}a:hover{color:#7C242C}
 h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
 .ph{background:#E9E4DA;display:flex;align-items:center;justify-content:center;font-size:12px;color:#5C5C5C}
-.sl{position:absolute;left:0;right:0;top:0;opacity:0;animation:cf 15s infinite}
+.sl{position:absolute;left:0;right:0;top:0;opacity:0;pointer-events:none;animation:cf 15s infinite}
 .dt{width:28px;height:4px;background:#D9D6CF;animation:dt 15s infinite}
 .k1{animation-delay:0s}.k2{animation-delay:3s}.k3{animation-delay:6s}.k4{animation-delay:9s}.k5{animation-delay:12s}
-@keyframes cf{0%{opacity:0}2%{opacity:1}17%{opacity:1}20%{opacity:0}100%{opacity:0}}
+@keyframes cf{0%{opacity:0;pointer-events:none}2%{opacity:1;pointer-events:auto}17%{opacity:1;pointer-events:auto}20%{opacity:0;pointer-events:none}100%{opacity:0;pointer-events:none}}
 @keyframes dt{0%{background:#7C242C}19%{background:#7C242C}20%,100%{background:#D9D6CF}}
 .card{background:#FFFFFF;border:1px solid #E5E3DE}
 .hm:checked ~ .drawer{display:block}
@@ -32,10 +32,10 @@ h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
 a{color:#242424;text-decoration:none}
 h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
 .ph{background:#E9E4DA;display:flex;align-items:center;justify-content:center;font-size:12px;color:#5C5C5C}
-.sl{position:absolute;left:0;right:0;top:0;opacity:0;animation:cf 15s infinite}
+.sl{position:absolute;left:0;right:0;top:0;opacity:0;pointer-events:none;animation:cf 15s infinite}
 .dt{width:22px;height:4px;background:#D9D6CF;animation:dt 15s infinite}
 .k1{animation-delay:0s}.k2{animation-delay:3s}.k3{animation-delay:6s}.k4{animation-delay:9s}.k5{animation-delay:12s}
-@keyframes cf{0%{opacity:0}2%{opacity:1}17%{opacity:1}20%{opacity:0}100%{opacity:0}}
+@keyframes cf{0%{opacity:0;pointer-events:none}2%{opacity:1;pointer-events:auto}17%{opacity:1;pointer-events:auto}20%{opacity:0;pointer-events:none}100%{opacity:0;pointer-events:none}}
 @keyframes dt{0%{background:#7C242C}19%{background:#7C242C}20%,100%{background:#D9D6CF}}
 .hm:checked ~ .drawer{display:block}
 .drawer{display:none}
@@ -92,12 +92,12 @@ h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
 <div style="display:flex;gap:6px;margin-top:12px" data-titik-m></div>
 </section>
 
-<section style="padding:12px 16px 8px">
+<section style="padding:28px 16px 8px">
 <h2 style="font-size:22px;border-bottom:2px solid #242424;padding-bottom:6px">10 Berita Utama</h2>
 <div data-utama-m></div>
 </section>
 
-<section style="padding:16px;background:#5E1A21;color:#FFFFFF;margin-top:12px">
+<section style="padding:16px;background:#5E1A21;color:#FFFFFF;margin-top:24px">
 <span style="font-size:11px;color:#CC9C44;font-weight:600">INFOGRAFIK DATA RISET</span>
 <p style="font-size:26px;font-family:Newsreader,serif;margin:6px 0">62%</p>
 <p style="font-size:14px;line-height:1.5;margin:0 0 8px">Proyek desa di Sumbar yang selesai tepat waktu sepanjang 2025.</p>
@@ -112,7 +112,7 @@ h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
 <footer style="padding:24px 16px 32px;font-size:13px;background:#F7F6F4">
 <b>Haisumbar.com</b>
 <p style="margin:6px 0 0;color:#5C5C5C">Suara Kritis Arus Bawah Ranah Minang</p>
-<p style="margin:6px 0 16px;color:#5C5C5C">Terdaftar di Dewan Pers, No. 000/DP/2026 (dummy)</p>
+
 <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px"><a href="#">Redaksi</a><a href="#">Pengaduan</a><a href="#">Hak Jawab</a><a href="#">Privasi</a></div>
 <label style="font-weight:600">Newsletter riset pagi/sore</label>
 <input aria-label="Alamat email" placeholder="Email Anda" style="display:block;width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid #242424;font-size:15px">
@@ -174,7 +174,7 @@ h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
 </aside>
 </main>
 
-<section style="padding:0 32px 32px;box-sizing:border-box">
+<section style="padding:24px 32px 32px;box-sizing:border-box">
 <h2 style="font-size:26px;border-bottom:2px solid #242424;padding-bottom:8px;margin-bottom:8px">10 Berita Utama</h2>
 <ol style="margin:0;padding:0;list-style:none" data-utama-d></ol>
 </section>
@@ -185,7 +185,7 @@ h1,h2,h3{font-family:Newsreader,Georgia,serif;margin:0;font-weight:600}
 </section>
 
 <footer style="padding:28px 32px;font-size:13px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;background:#F7F6F4">
-<div><b>Haisumbar.com</b><p style="margin:6px 0 0;color:#5C5C5C">Suara Kritis Arus Bawah Ranah Minang</p><p style="margin:6px 0 0;color:#5C5C5C">Terdaftar di Dewan Pers, No. 000/DP/2026 (dummy)</p></div>
+<div><b>Haisumbar.com</b><p style="margin:6px 0 0;color:#5C5C5C">Suara Kritis Arus Bawah Ranah Minang</p></div>
 <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:center"><a href="#">Redaksi</a><a href="#">Pengaduan Pembaca</a><a href="#">Hak Jawab</a><a href="#">Kebijakan Privasi</a></div>
 <div style="display:flex;flex-direction:column;gap:8px;min-width:240px"><span>Newsletter riset pagi/sore</span><input aria-label="Alamat email" placeholder="Email Anda" style="padding:10px;border:1px solid #242424"><button style="padding:10px;background:#7C242C;color:#FFFFFF;border:0;font-weight:600;cursor:pointer">Berlangganan</button></div>
 </footer>
