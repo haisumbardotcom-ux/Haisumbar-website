@@ -1,1 +1,54 @@
-{"items":[{"title":"Bitcoin Bangkit Menembus US$83.000 di Tengah Anjloknya Saham Chip Asia","slug":"bitcoin-bangkit-83-ribu-saham-chip-asia-anjlok","category":"Ekonomi","breaking":true,"author":"Tim Ekonomi Haisumbar","published_at":"2026-10-14T08:45:00+07:00","image":"","body":"Harga Bitcoin (BTC) kembali menembus level US$83.000 pada perdagangan Rabu (14/10/2026) pagi, bangkit setelah sempat tertekan hingga di bawah US$81.000. Berdasarkan data CoinMarketCap pukul 07.00 WIB, Bitcoin melonjak 1,66% menjadi US$83.071 per koin, atau sekitar Rp1,48 miliar dengan asumsi kurs Rp17.894 per dolar AS.\n\nPemulihan ini terjadi justru ketika pasar saham Asia dilanda aksi jual tajam, terutama saham produsen chip Korea Selatan. Indeks KOSPI sempat merosot lebih dari 6% secara intraday hingga menembus ke bawah level 6.000, dengan saham Samsung Electronics dan SK Hynix masing-masing terkoreksi sekitar 8%. Kekhawatiran atas valuasi perusahaan kecerdasan buatan (AI) dan persaingan chip memori dari China membebani sentimen, sementara kontrak berjangka Nasdaq ikut melemah 0,6%.\n\nKenaikan Bitcoin diikuti aset kripto besar lainnya. Ethereum (ETH) terbang sekitar 2% ke kisaran US$2.499, sedangkan Binance Coin (BNB) naik 1,1% menjadi US$741. Kapitalisasi pasar kripto global secara keseluruhan menguat 1,61% dalam 24 jam terakhir menjadi sekitar US$2,8 triliun.\n\nMeski demikian, pelaku pasar masih bersikap hati-hati. Analis menilai area US$81.000 menjadi penopang (support) penting bagi Bitcoin, sedangkan US$84.000 adalah hambatan (resistance) terdekat yang harus ditembus untuk memastikan pemulihan berlanjut.\n\nFokus investor kini tertuju pada rilis data inflasi Amerika Serikat yang berpotensi memengaruhi arah kebijakan suku bunga bank sentral AS, The Fed — faktor yang selama ini menjadi penentu utama selera risiko di pasar kripto."},{"title":"Contoh judul breaking news","slug":"contoh-breaking","category":"Politik","breaking":true,"author":"Redaksi","published_at":"2026-10-13T09:00:00+07:00","image":"","body":"Isi berita pertama.\n\nParagraf kedua."},{"title":"Contoh berita ekonomi terkini","slug":"contoh-ekonomi","category":"Ekonomi","breaking":false,"author":"Redaksi","published_at":"2026-10-13T08:00:00+07:00","image":"","body":"Isi berita ekonomi."},{"title":"Contoh berita teknologi terkini","slug":"contoh-teknologi","category":"Teknologi","breaking":false,"author":"Redaksi","published_at":"2026-10-13T07:00:00+07:00","image":"","body":"Isi berita teknologi."},{"title":"Contoh berita olahraga terkini","slug":"contoh-olahraga","category":"Olahraga","breaking":false,"author":"Redaksi","published_at":"2026-10-13T06:00:00+07:00","image":"","body":"Isi berita olahraga."}]}
+{
+  "items": [
+    {
+      "title": "Bitcoin Bangkit Menembus US$83.000 di Tengah Anjloknya Saham Chip Asia",
+      "slug": "bitcoin-bangkit-83-ribu-saham-chip-asia-anjlok",
+      "category": "Ekonomi",
+      "breaking": true,
+      "author": "Tim Ekonomi Haisumbar",
+      "published_at": "2026-10-14T08:45:00+07:00",
+      "image": "assets/berita/bitcoin-pasar-kripto.jpg",
+      "body": "Harga Bitcoin (BTC) kembali menembus level US$83.000 pada perdagangan Rabu (14/10/2026) pagi, bangkit setelah sempat tertekan hingga di bawah US$81.000. Berdasarkan data CoinMarketCap pukul 07.00 WIB, Bitcoin melonjak 1,66% menjadi US$83.071 per koin, atau sekitar Rp1,48 miliar dengan asumsi kurs Rp17.894 per dolar AS.\n\nPemulihan ini terjadi justru ketika pasar saham Asia dilanda aksi jual tajam, terutama saham produsen chip Korea Selatan. Indeks KOSPI sempat merosot lebih dari 6% secara intraday hingga menembus ke bawah level 6.000, dengan saham Samsung Electronics dan SK Hynix masing-masing terkoreksi sekitar 8%. Kekhawatiran atas valuasi perusahaan kecerdasan buatan (AI) dan persaingan chip memori dari China membebani sentimen, sementara kontrak berjangka Nasdaq ikut melemah 0,6%.\n\nKenaikan Bitcoin diikuti aset kripto besar lainnya. Ethereum (ETH) terbang sekitar 2% ke kisaran US$2.499, sedangkan Binance Coin (BNB) naik 1,1% menjadi US$741. Kapitalisasi pasar kripto global secara keseluruhan menguat 1,61% dalam 24 jam terakhir menjadi sekitar US$2,8 triliun.\n\nMeski demikian, pelaku pasar masih bersikap hati-hati. Analis menilai area US$81.000 menjadi penopang (support) penting bagi Bitcoin, sedangkan US$84.000 adalah hambatan (resistance) terdekat yang harus ditembus untuk memastikan pemulihan berlanjut.\n\nFokus investor kini tertuju pada rilis data inflasi Amerika Serikat yang berpotensi memengaruhi arah kebijakan suku bunga bank sentral AS, The Fed — faktor yang selama ini menjadi penentu utama selera risiko di pasar kripto."
+    },
+    {
+      "title": "Contoh judul breaking news",
+      "slug": "contoh-breaking",
+      "category": "Politik",
+      "breaking": true,
+      "author": "Redaksi",
+      "published_at": "2026-10-13T09:00:00+07:00",
+      "image": "",
+      "body": "Isi berita pertama.\n\nParagraf kedua."
+    },
+    {
+      "title": "Contoh berita ekonomi terkini",
+      "slug": "contoh-ekonomi",
+      "category": "Ekonomi",
+      "breaking": false,
+      "author": "Redaksi",
+      "published_at": "2026-10-13T08:00:00+07:00",
+      "image": "",
+      "body": "Isi berita ekonomi."
+    },
+    {
+      "title": "Contoh berita teknologi terkini",
+      "slug": "contoh-teknologi",
+      "category": "Teknologi",
+      "breaking": false,
+      "author": "Redaksi",
+      "published_at": "2026-10-13T07:00:00+07:00",
+      "image": "",
+      "body": "Isi berita teknologi."
+    },
+    {
+      "title": "Contoh berita olahraga terkini",
+      "slug": "contoh-olahraga",
+      "category": "Olahraga",
+      "breaking": false,
+      "author": "Redaksi",
+      "published_at": "2026-10-13T06:00:00+07:00",
+      "image": "",
+      "body": "Isi berita olahraga."
+    }
+  ]
+}
