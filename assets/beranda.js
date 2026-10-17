@@ -36,25 +36,28 @@
     return new Date(iso).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
   }
   function foto(it, gaya, label) {
-    if (it.image) return '<img src="' + esc(it.image) + '" alt="" style="' + gaya + ';object-fit:cover;width:100%">';
+    if (it.image) return '<img src="' + esc(it.image) + '" alt="" style="' + gaya + ';object-fit:cover;width:100%;display:block">';
     return '<div class="ph" style="' + gaya + '">' + label + '</div>';
   }
   function badge(it, gaya) {
     return '<span style="display:inline-block;background:' + warna(it.category) + ';color:' + teksWarna(it.category) + ';font-weight:600;' + gaya + '">' + esc(String(it.category || '').toUpperCase()) + '</span>';
   }
 
+  function potongBaris(n) {
+    return 'display:-webkit-box;-webkit-line-clamp:' + n + ';-webkit-box-orient:vertical;overflow:hidden';
+  }
   function slideMobile(it, i) {
     return '<div class="sl k' + (i + 1) + '"><a href="' + tautan(it) + '">' + foto(it, 'aspect-ratio:3/2', '[Foto 3:2]') + '</a>' +
       badge(it, 'margin-top:12px;font-size:11px;padding:3px 8px') +
-      '<h1 style="font-size:26px;line-height:1.2;margin-top:8px"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h1>' +
-      '<p style="font-size:14px;line-height:1.6;margin:8px 0 0">' + esc(kutipan(it, 150)) + '</p>' +
+      '<h1 style="font-size:26px;line-height:1.2;margin-top:8px;' + potongBaris(4) + '"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h1>' +
+      '<p style="font-size:14px;line-height:1.6;margin:8px 0 0;' + potongBaris(3) + '">' + esc(kutipan(it, 150)) + '</p>' +
       '<p style="font-size:12px;color:#5C5C5C;margin:8px 0 0">' + esc(it.author || 'Redaksi') + ' · ' + menitBaca(it) + ' menit baca</p></div>';
   }
   function slideDesktop(it, i) {
     return '<div class="sl k' + (i + 1) + '"><a href="' + tautan(it) + '">' + foto(it, 'aspect-ratio:16/9', '[Foto jurnalistik 16:9]') + '</a>' +
       badge(it, 'margin-top:16px;font-size:12px;padding:3px 10px') +
-      '<h1 style="font-size:40px;line-height:1.15;margin-top:12px"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h1>' +
-      '<p style="font-size:17px;line-height:1.6;margin:12px 0 0">' + esc(kutipan(it, 190)) + '</p>' +
+      '<h1 style="font-size:40px;line-height:1.15;margin-top:12px;' + potongBaris(3) + '"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h1>' +
+      '<p style="font-size:17px;line-height:1.6;margin:12px 0 0;' + potongBaris(3) + '">' + esc(kutipan(it, 190)) + '</p>' +
       '<p style="font-size:13px;color:#5C5C5C;margin:14px 0 0">' + esc(it.author || 'Redaksi') + ' · ' + menitBaca(it) + ' menit baca</p></div>';
   }
   function titik(n) {
