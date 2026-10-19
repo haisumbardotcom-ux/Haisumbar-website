@@ -4,7 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Artikel · Haisumbar.com</title>
-<meta name="description" content="Portal media digital dan jurnalisme data Haisumbar.com.">
+<meta name="description" id="meta-desc" content="Portal media digital dan jurnalisme data Haisumbar.com.">
+<link rel="canonical" id="meta-canonical" href="https://haisumbar.com/">
+<meta property="og:site_name" content="Haisumbar.com">
+<meta property="og:type" id="og-type" content="website">
+<meta property="og:title" id="og-title" content="Artikel · Haisumbar.com">
+<meta property="og:description" id="og-desc" content="Portal media digital dan jurnalisme data Haisumbar.com.">
+<meta property="og:url" id="og-url" content="https://haisumbar.com/">
+<meta property="og:image" id="og-image" content="https://haisumbar.com/assets/logo-haisumbar.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="tw-title" content="Artikel · Haisumbar.com">
+<meta name="twitter:description" id="tw-desc" content="Portal media digital dan jurnalisme data Haisumbar.com.">
+<meta name="twitter:image" id="tw-image" content="https://haisumbar.com/assets/logo-haisumbar.png">
+<script type="application/ld+json" id="ld-artikel"></script>
 <link rel="icon" href="assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
@@ -56,6 +68,34 @@ footer{padding:24px 20px 32px;font-size:13px;color:#5C5C5C}
     var it = items.find(function (i) { return i.slug === slug; });
     if (!it) { box.innerHTML = '<p class="meta">Artikel tidak ditemukan. <a href="index.html">Kembali ke beranda</a></p>'; return; }
     document.title = it.title + ' · Haisumbar.com';
+    var urlArt = 'https://haisumbar.com/artikel.html?slug=' + encodeURIComponent(it.slug);
+    var imgArt = it.image ? 'https://haisumbar.com/' + it.image : 'https://haisumbar.com/assets/logo-haisumbar.png';
+    var parMeta = String(it.body || '').split(/\n\s*\n/).map(function (p) { return p.trim(); }).filter(Boolean);
+    var ringkasan = (parMeta[0] || '').replace(/\s+/g, ' ');
+    if (ringkasan.length > 160) ringkasan = ringkasan.slice(0, 157).replace(/\s+\S*$/, '') + '…';
+    function setM(id, val, attr) { var el = document.getElementById(id); if (el) el.setAttribute(attr || 'content', val); }
+    setM('meta-desc', ringkasan);
+    setM('meta-canonical', urlArt, 'href');
+    setM('og-type', 'article');
+    setM('og-title', it.title);
+    setM('og-desc', ringkasan);
+    setM('og-url', urlArt);
+    setM('og-image', imgArt);
+    setM('tw-title', it.title);
+    setM('tw-desc', ringkasan);
+    setM('tw-image', imgArt);
+    var ldEl = document.getElementById('ld-artikel');
+    if (ldEl) ldEl.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'NewsArticle',
+      headline: it.title,
+      description: ringkasan,
+      image: [imgArt],
+      datePublished: it.published_at,
+      author: { '@type': 'Organization', name: it.author || 'Redaksi Haisumbar' },
+      publisher: { '@type': 'Organization', name: 'Haisumbar.com', logo: { '@type': 'ImageObject', url: 'https://haisumbar.com/assets/logo-haisumbar.png' } },
+      mainEntityOfPage: urlArt
+    });
     var warna = WARNA[it.category] || '#7C242C';
     var teks = warna === '#CC9C44' ? '#242424' : '#FFFFFF';
     var tgl = new Date(it.published_at).toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
