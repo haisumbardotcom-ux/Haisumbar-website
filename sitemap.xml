@@ -2,9 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://haisumbar.com/</loc>
-    <lastmod>2026-10-20</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://haisumbar.com/artikel.html?slug=polda-sumbar-tertibkan-spbu-padang-padang-pariaman-awasi-bbm-subsidi</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haisumbar.com/artikel.html?slug=truk-cabai-masuk-jurang-silaing-bawah-rem-diduga-bermasalah-dua-luka-ringan</loc>
