@@ -16,7 +16,7 @@
   }
   function tautan(it) { return 'artikel.html?slug=' + encodeURIComponent(it.slug || ''); }
   function kutipan(it, n) {
-    var b = String(it.body || '').replace(/\s+/g, ' ').trim();
+    var b = String(it.excerpt || it.body || '').replace(/\s+/g, ' ').trim();
     return b.length > n ? b.slice(0, n).replace(/\s+\S*$/, '') + '…' : b;
   }
   function menitBaca(it) {
@@ -35,9 +35,21 @@
     if (h < 30) return h + ' hari lalu';
     return new Date(iso).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
   }
-  function foto(it, gaya, label) {
-    if (it.image) return '<img src="' + esc(it.image) + '" alt="" style="' + gaya + ';object-fit:cover;width:100%;display:block">';
-    return '<div class="ph" style="' + gaya + '">' + label + '</div>';
+  function varian(src, w) { return src.replace(/\.(jpe?g|png)$/i, '-' + w + '.webp'); }
+  // jenis: 'hero' (slide utama), 'card' (kartu rubrik), 'thumb' (baris daftar).
+  // utama=true hanya untuk slide hero pertama (kandidat LCP): eager + prioritas tinggi.
+  function foto(it, gaya, label, jenis, utama) {
+    if (!it.image) return '<div class="ph" style="' + gaya + '">' + label + '</div>';
+    var def = 400, sizes = '(max-width:767px) 96px, 180px';
+    if (jenis === 'hero') { def = 800; sizes = '(max-width:767px) 100vw, 820px'; }
+    else if (jenis === 'card') { def = 800; sizes = '(max-width:767px) 100vw, 400px'; }
+    var set = varian(it.image, 400) + ' 400w, ' + varian(it.image, 800) + ' 800w, ' + varian(it.image, 1200) + ' 1200w';
+    var s = '<img src="' + esc(varian(it.image, def)) + '" srcset="' + esc(set) + '" sizes="' + sizes + '"' +
+      ' alt="" style="' + gaya + ';object-fit:cover;width:100%;display:block" decoding="async"' +
+      ' onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=\'' + esc(it.image) + '\'"';
+    if (it.image_w && it.image_h) s += ' width="' + it.image_w + '" height="' + it.image_h + '"';
+    s += utama ? ' fetchpriority="high">' : ' loading="lazy">';
+    return s;
   }
   function badge(it, gaya) {
     return '<span style="display:inline-block;background:' + warna(it.category) + ';color:' + teksWarna(it.category) + ';font-weight:600;' + gaya + '">' + esc(String(it.category || '').toUpperCase()) + '</span>';
@@ -47,14 +59,14 @@
     return 'display:-webkit-box;-webkit-line-clamp:' + n + ';-webkit-box-orient:vertical;overflow:hidden';
   }
   function slideMobile(it, i) {
-    return '<div class="sl k' + (i + 1) + '"><a href="' + tautan(it) + '">' + foto(it, 'aspect-ratio:3/2', '[Foto 3:2]') + '</a>' +
+    return '<div class="sl k' + (i + 1) + '"><a href="' + tautan(it) + '">' + foto(it, 'aspect-ratio:3/2', '[Foto 3:2]', 'hero', i === 0) + '</a>' +
       badge(it, 'margin-top:12px;font-size:11px;padding:3px 8px') +
       '<h1 style="font-size:26px;line-height:1.2;margin-top:8px;' + potongBaris(4) + '"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h1>' +
       '<p style="font-size:14px;line-height:1.6;margin:8px 0 0;' + potongBaris(3) + '">' + esc(kutipan(it, 150)) + '</p>' +
       '<p style="font-size:12px;color:#5C5C5C;margin:8px 0 0">' + esc(it.author || 'Redaksi') + ' · ' + menitBaca(it) + ' menit baca</p></div>';
   }
   function slideDesktop(it, i) {
-    return '<div class="sl k' + (i + 1) + '"><a href="' + tautan(it) + '">' + foto(it, 'aspect-ratio:16/9', '[Foto jurnalistik 16:9]') + '</a>' +
+    return '<div class="sl k' + (i + 1) + '"><a href="' + tautan(it) + '">' + foto(it, 'aspect-ratio:16/9', '[Foto jurnalistik 16:9]', 'hero', i === 0) + '</a>' +
       badge(it, 'margin-top:16px;font-size:12px;padding:3px 10px') +
       '<h1 style="font-size:40px;line-height:1.15;margin-top:12px;' + potongBaris(3) + '"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h1>' +
       '<p style="font-size:17px;line-height:1.6;margin:12px 0 0;' + potongBaris(3) + '">' + esc(kutipan(it, 190)) + '</p>' +
@@ -67,7 +79,7 @@
   }
   function barisMobile(it, i, terakhir) {
     return '<div class="row"' + (terakhir ? ' style="border-bottom:0"' : '') + '><b style="font-family:Newsreader,serif;font-size:22px;color:#7C242C">' + (i + 1) + '</b>' +
-      '<a href="' + tautan(it) + '">' + foto(it, 'height:72px', '[Thumb]') + '</a>' +
+      '<a href="' + tautan(it) + '">' + foto(it, 'height:72px', '[Thumb]', 'thumb') + '</a>' +
       '<div>' + badge(it, 'font-size:10px;padding:2px 6px') +
       '<h3 style="font-size:16px;margin-top:4px;line-height:1.3"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h3>' +
       '<p style="font-size:12px;color:#5C5C5C;margin:4px 0 0">' + relWaktu(it.published_at) + '</p></div></div>';
@@ -75,14 +87,14 @@
   function barisDesktop(it, i, terakhir) {
     return '<li style="display:grid;grid-template-columns:40px 180px 1fr auto;gap:16px;padding:14px 0;' + (terakhir ? '' : 'border-bottom:1px solid #E5E3DE;') + 'align-items:center">' +
       '<b style="font-family:Newsreader,serif;font-size:28px;color:#7C242C">' + (i + 1) + '</b>' +
-      '<a href="' + tautan(it) + '">' + foto(it, 'height:110px', '[Thumbnail]') + '</a>' +
+      '<a href="' + tautan(it) + '">' + foto(it, 'height:110px', '[Thumbnail]', 'thumb') + '</a>' +
       '<div>' + badge(it, 'font-size:11px;padding:2px 6px') +
       '<h3 style="font-size:19px;margin-top:6px"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h3>' +
       '<p style="font-size:14px;margin:4px 0 0;color:#5C5C5C">' + esc(kutipan(it, 130)) + '</p></div>' +
       '<span style="font-size:12px;color:#5C5C5C">' + relWaktu(it.published_at) + '</span></li>';
   }
   function kartuRubrik(it, desktop) {
-    var isi = '<a href="' + tautan(it) + '">' + foto(it, 'height:' + (desktop ? '150px' : '140px'), '[Foto liputan]') + '</a>' +
+    var isi = '<a href="' + tautan(it) + '">' + foto(it, 'height:' + (desktop ? '150px' : '140px'), '[Foto liputan]', 'card') + '</a>' +
       '<div style="padding:' + (desktop ? '16px' : '12px') + '"><span style="font-size:11px;color:' + warna(it.category) + ';font-weight:600">' + esc(String(it.category || '').toUpperCase()) + '</span>' +
       '<h3 style="font-size:' + (desktop ? '19px' : '18px') + ';margin-top:' + (desktop ? '6px' : '4px') + '"><a href="' + tautan(it) + '">' + esc(it.title) + '</a></h3>' +
       '<p style="font-size:13px;margin:' + (desktop ? '10px' : '6px') + ' 0 0;line-height:1.5">' + esc(kutipan(it, 110)) + '</p></div>';
@@ -137,8 +149,9 @@
     s.textContent = new Date().toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
   });
 
-  fetch('data/berita.json')
-    .then(function (r) { return r.json(); })
+  fetch('data/beranda.json')
+    .then(function (r) { if (!r.ok) throw new Error('beranda'); return r.json(); })
+    .catch(function () { return fetch('data/berita.json').then(function (r) { return r.json(); }); })
     .then(function (d) { isi(d.items || []); })
     .catch(function () { /* biarkan tampilan bawaan bila data gagal dimuat */ });
 })();

@@ -21,9 +21,14 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/inter-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400 700;font-display:swap;src:url(assets/fonts/inter-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:500 600;font-display:swap;src:url(assets/fonts/newsreader-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Newsreader';font-style:normal;font-weight:500 600;font-display:swap;src:url(assets/fonts/newsreader-latin.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+</style>
 <style>
 body{margin:0;background:#F7F6F4;color:#242424;font-family:Inter,system-ui,sans-serif}
 a{color:#242424;text-decoration:none}a:hover{color:#7C242C}
@@ -63,7 +68,15 @@ footer{padding:24px 20px 32px;font-size:13px;color:#5C5C5C}
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   var box = document.getElementById('artikel-isi');
   var slug = new URLSearchParams(location.search).get('slug');
-  fetch('data/berita.json').then(function (r) { return r.json(); }).then(function (d) {
+  var dimsP = fetch('data/beranda.json').then(function (r) { return r.json(); }).catch(function () { return null; });
+  fetch('data/berita.json').then(function (r) { return r.json(); }).then(function (d0) {
+    return dimsP.then(function (indeks) {
+      var dims = {};
+      if (indeks) (indeks.items || []).forEach(function (i) { if (i.image_w) dims[i.slug] = [i.image_w, i.image_h]; });
+      return { d: d0, dims: dims };
+    });
+  }).then(function (paket) {
+    var d = paket.d; var dims = paket.dims;
     var items = (d.items || []).slice().sort(function (a, b) { return new Date(b.published_at) - new Date(a.published_at); });
     var it = items.find(function (i) { return i.slug === slug; });
     if (!it) { box.innerHTML = '<p class="meta">Artikel tidak ditemukan. <a href="index.html">Kembali ke beranda</a></p>'; return; }
@@ -102,7 +115,12 @@ footer{padding:24px 20px 32px;font-size:13px;color:#5C5C5C}
     var html = '<span class="badge" style="background:' + warna + ';color:' + teks + '">' + esc(String(it.category || '').toUpperCase()) + '</span>' +
       '<h1 style="font-size:32px;line-height:1.2;margin-top:12px">' + esc(it.title) + '</h1>' +
       '<p class="meta" style="margin:12px 0 0">' + esc(it.author || 'Redaksi') + ' · ' + esc(tgl) + '</p>';
-    if (it.image) html += '<img src="' + esc(it.image) + '" alt="" style="width:100%;margin-top:18px">';
+    if (it.image) {
+      var dim = dims[it.slug];
+      html += '<img src="' + esc(String(it.image).replace(/\.(jpe?g|png)$/i, '-1200.webp')) + '" alt="" fetchpriority="high" decoding="async"' +
+        (dim ? ' width="' + dim[0] + '" height="' + dim[1] + '"' : '') +
+        ' onerror="this.onerror=null;this.src=\'' + esc(it.image) + '\'" style="width:100%;height:auto;margin-top:18px">';
+    }
     html += '<div class="isi" style="margin-top:18px">' + String(it.body || '').split(/\n\s*\n/).map(function (p) { return '<p>' + esc(p.trim()).replace(/\n/g, '<br>') + '</p>'; }).join('') + '</div>';
     box.innerHTML = html;
     var lain = items.filter(function (i) { return i.slug !== slug; }).slice(0, 3);
