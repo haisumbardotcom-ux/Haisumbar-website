@@ -20,7 +20,7 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parent.parent
 IMG_DIR = ROOT / "assets" / "berita"
 SIZES = (1200, 800, 400)
-QUALITY = 76
+QUALITY = 68
 SRC_EXTS = {".jpg", ".jpeg", ".png"}
 
 
