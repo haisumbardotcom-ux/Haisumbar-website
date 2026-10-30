@@ -2,9 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://haisumbar.com/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-10-30</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://haisumbar.com/artikel.html?slug=bmkg-hujan-sedang-lebat-sumbar-30-oktober-2026</loc>
+    <lastmod>2026-10-30</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haisumbar.com/artikel.html?slug=fadly-amran-lantik-indra-noferi-dewas-perumda-psm-padang</loc>
