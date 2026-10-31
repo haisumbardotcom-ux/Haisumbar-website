@@ -2,9 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://haisumbar.com/</loc>
-    <lastmod>2026-10-31</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://haisumbar.com/artikel.html?slug=bmkg-sumbar-siaga-hujan-lebat-sangat-lebat-2-5-november-2026</loc>
+    <lastmod>2026-11-01</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haisumbar.com/artikel.html?slug=minang-geopark-run-2026-bukittinggi-agam-3800-pelari</loc>
