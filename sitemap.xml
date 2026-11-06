@@ -2,9 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://haisumbar.com/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-06</lastmod>
     <changefreq>hourly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://haisumbar.com/artikel.html?slug=ekonomi-sumbar-tumbuh-469-persen-triwulan-iii-2026-ipm-7797</loc>
+    <lastmod>2026-11-06</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://haisumbar.com/artikel.html?slug=pengangguran-sumbar-17888-ribu-orang-tpt-557-persen-agustus-2026</loc>
